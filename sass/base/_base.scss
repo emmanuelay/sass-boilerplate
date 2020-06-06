@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* This defines what 1 rem is.
+       16 px is the default font size. 
+       1 rem = (R)elative to font-size of the root (E)le(M)ment
+       We want 1 rem = 10 px; Thus, 10px/16px = 62.5% */
+    font-size: 62.5%; 
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    @include respond(phone) {
+        font-size: 30%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+}
+
+body {
+    /* Borders and padding are added to the height */
+    box-sizing: border-box; 
+}

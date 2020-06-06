@@ -1,6 +1,18 @@
 
-// Abstracts
+/* Abstracts */
 @import "abstracts/variables",
         "abstracts/functions",
         "abstracts/mixins";
 
+/* Base */
+@import "base/animations",
+        "base/base",
+        "base/typography",
+        "base/utilities";
+
+/* Layout */
+@import "layout/header",
+        "layout/footer";
+
+/* Pages */
+@import "pages/home";
