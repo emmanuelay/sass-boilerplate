@@ -1,0 +1,72 @@
+/* Abstracts */
+/* Font */
+/*
+Breakpoints:
+0    - 600px   Phone
+600  - 900px   Tablet (Portrait)
+900  - 1200px  Tablet (Landscape)
+1200 - 1800px  Desktop, assume to be normal state
+
+1800px +       Big desktop
+
+breakpoint argument choices:
+- phone 
+- tab-port
+- tab-land
+- desktop (Not included, is expected to be the normal state)
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+*/
+/* Base */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* This defines what 1 rem is.
+       16 px is the default font size. 
+       1 rem = (R)elative to font-size of the root (E)le(M)ment
+       We want 1 rem = 10 px; Thus, 10px/16px = 62.5% */
+  font-size: 62.5%;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 37.5em) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  /* Borders and padding are added to the height */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Layout */
+/* Pages */
