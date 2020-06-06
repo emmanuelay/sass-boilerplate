@@ -1,0 +1,20 @@
+{
+    "name": "sass-boilerplate",
+    "version": "1.0.0",
+    "description": "Boilerplate for SASS projects",
+    "main": "index.js",
+    "scripts": {
+      "compile:sass": "node-sass sass/main.scss css/style.css -w --output-style expanded",
+      "build:live": "live-server",
+      "autoprefixer": "postcss css/style.css --use autoprefixer -d build/"
+    },
+    "author": "Emmanuel Ay",
+    "license": "ISC",
+    "devDependencies": {
+      "autoprefixer": "^9.8.0",
+      "live-server": "^1.2.1",
+      "node-sass": "^4.13.1",
+      "postcss-cli": "^7.1.1"
+    }
+  }
+  
