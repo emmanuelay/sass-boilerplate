@@ -6,14 +6,17 @@
   "scripts": {
     "compile:sass": "node-sass sass/main.scss css/style.css -w --output-style expanded",
     "build:live": "live-server",
-    "autoprefixer": "postcss css/style.css --use autoprefixer -d build/"
+    "compile:postcss": "postcss css/style.css -o css/style.min.css --watch",
+    "develop:start": "npm-run-all --parallel compile:sass build:live compile:postcss"
   },
   "author": "Emmanuel Ay",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.8.0",
+    "cssnano": "^4.1.10",
+    "autoprefixer": "^9.7.6",
     "live-server": "^1.2.1",
-    "node-sass": "^4.13.1",
-    "postcss-cli": "^7.1.1"
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-combine-duplicated-selectors": "^8.1.0"
   }
 }
