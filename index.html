@@ -4,9 +4,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
-        <title>SASS Boilerplate</title>
+		<title>SASS Boilerplate</title>
+		<script language="javascript">
+			function toggleTheme() {
+				const bodyElement = document.body;
+				if (bodyElement.classList.contains("dark")) {
+					bodyElement.classList.remove("dark");
+				} else {
+					bodyElement.classList.add("dark");
+				}
+			}
+		</script>
     </head>
-    <body>
-        <h1>Hello, world domination!</h1>
+    <body id="mybody">
+		<h1>Hello, world domination!</h1>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod veniam, consequatur quo amet dolore dolorum accusamus libero, quidem et quos odio optio placeat, vitae accusantium possimus vel alias? Quos, nihil.</p>
+		<form>
+			<input type="checkbox" id="theme" value="dark" onChange="toggleTheme()" />
+		</form>
     </body>
 </html>
