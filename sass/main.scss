@@ -4,6 +4,9 @@
         "abstracts/functions",
         "abstracts/mixins";
 
+/* Themes */
+@import "themes/themes";
+		
 /* Base */
 @import "base/animations",
         "base/base",
@@ -17,6 +20,6 @@
 /* Pages */
 @import "pages/home";
 
-/* Themes */
-@import "themes/light",
-		"themes/dark";
+/* Components */
+@import "components/button",
+		"components/panel";

@@ -1,5 +1,5 @@
 /* Abstracts */
-/* Font */
+/* Typography */
 /*
 Breakpoints:
 0    - 600px   Phone
@@ -18,7 +18,46 @@ breakpoint argument choices:
 
 ORDER: Base + typography > general layout + grid > page layout > components
 */
+/* Themes */
+/* 
+	Contains values that span over different themes.
+	These variables can be overridden in the separate theme files.
+*/
+/* 
+	This mixin transfers SASS variables to CSS-variables,
+	which makes it possible to toggle the whole theme using a single class.
+*/
+/* Generate the light theme CSS-variables */
+/* Light theme variables */
+:root {
+  --color-page-background: #fff;
+  --color-text: #000;
+  --color-heading: #00f;
+  --color-button-background: #00f;
+  --color-button-background-hover: #68f568;
+  --color-button-text: #eaeafd;
+  --color-button-text-hover: #084d08;
+  --color-border-separator: #eee;
+}
+
+/* Generate the dark theme CSS-variables */
+/* Dark theme variables */
+.dark {
+  --color-page-background: #000;
+  --color-text: #ccc;
+  --color-heading: #d33;
+  --color-button-background: #d33;
+  --color-button-background-hover: #cc3;
+  --color-button-text: #eee;
+  --color-button-text-hover: #333;
+  --color-border-separator: #444;
+}
+
 /* Base */
+.animation-color {
+  transition: color .3s ease-in-out, background-color .4s ease-in-out;
+}
+
 *,
 *::after,
 *::before {
@@ -62,12 +101,61 @@ html {
 body {
   /* Borders and padding are added to the height */
   box-sizing: border-box;
+  background-color: var(--color-page-background);
+  color: var(--color-text);
+  padding: 20px;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+}
+
+input, textarea, select,
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 /* Layout */
 /* Pages */
-/* Themes */
+/* Components */
+.button {
+  display: inline-block;
+  border: 0;
+  outline: none;
+  background-color: var(--color-button-background);
+  color: var(--color-button-text);
+  padding: 10px 30px 10px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0px;
+  border-radius: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: var(--color-button-background-hover);
+  color: var(--color-button-text-hover);
+  transition: background-color .5s, color .2s;
+}
+
+.panel {
+  padding: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border-separator);
+}

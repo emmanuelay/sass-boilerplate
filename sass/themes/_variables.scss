@@ -1,0 +1,16 @@
+/* 
+	This mixin transfers SASS variables to CSS-variables,
+	which makes it possible to toggle the whole theme using a single class.
+*/
+
+@mixin cssvariables {
+	--color-page-background: #{$color-background};
+	--color-text: #{$color-text};
+	--color-heading: #{$color-primary};
+
+	--color-button-background: #{$color-primary};
+	--color-button-background-hover: #{$color-secondary};
+	--color-button-text: #{$color-button-text};
+	--color-button-text-hover: #{$color-button-text-hover};
+	--color-border-separator: #{$color-border-separator};
+}

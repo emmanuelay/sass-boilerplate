@@ -1,0 +1,15 @@
+@import "common";
+@import "variables";
+
+/* Generate the light theme CSS-variables */
+@import "light"; // Sets the light theme variables to default
+:root {
+	@include cssvariables; // Renders the light theme css variables
+}
+
+/* Generate the dark theme CSS-variables */
+@import "dark"; // Sets the dark theme variables
+.dark {
+	@include cssvariables; // Renders the dark theme css variables
+
+}

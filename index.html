@@ -8,19 +8,23 @@
 		<script language="javascript">
 			function toggleTheme() {
 				const bodyElement = document.body;
-				if (bodyElement.classList.contains("dark")) {
-					bodyElement.classList.remove("dark");
-				} else {
-					bodyElement.classList.add("dark");
-				}
+				if (!bodyElement || bodyElement === undefined) return;
+				const bodyClasses = bodyElement.classList;
+				bodyClasses.contains("dark") ? bodyClasses.remove("dark") : bodyClasses.add("dark");
 			}
 		</script>
     </head>
-    <body id="mybody">
+    <body id="mybody" class="animation-color">
 		<h1>Hello, world domination!</h1>
 		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod veniam, consequatur quo amet dolore dolorum accusamus libero, quidem et quos odio optio placeat, vitae accusantium possimus vel alias? Quos, nihil.</p>
 		<form>
-			<input type="checkbox" id="theme" value="dark" onChange="toggleTheme()" />
+			<div class="panel">
+				<input type="checkbox" id="theme" value="dark" onChange="toggleTheme()" />
+				<label for="theme">Toggle dark mode</label>
+			</div>
+			<div class="panel">
+				<a href="#" class="button">A button</a>
+			</div>
 		</form>
     </body>
 </html>
