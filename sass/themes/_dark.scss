@@ -1,10 +1,22 @@
 /* Dark theme variables */
-$color-background: #000;
+$color-background: rgb(24, 25, 26);
 $color-text: #ccc;
-$color-primary: #d33;
+$color-primary: #F39621;
+$color-primary-hover: #f6ae55;
 $color-secondary: #cc3;
 
-$color-button-text: #eee;
-$color-button-text-hover: #333;
+$color-panel: rgb(36, 37, 38);
+
+$color-button-background: rgba(255, 255, 255, 0.1);
+$color-button-background-hover: rgba(255, 255, 255, 0.25);
+
+$color-button-text: rgb(228, 230, 235);
+$color-button-text-hover: rgb(228, 230, 235);
+
+$color-button-add-text: rgb(255,255,255);
+$color-button-add-text-hover: rgb(255,255,255);
+
+$color-switch-background: #ccc;
+$color-switch-active: #2196F3;
 
 $color-border-separator: #444;

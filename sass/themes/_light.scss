@@ -1,10 +1,22 @@
 /* Light theme variables */
-$color-background: #fff;
+$color-background: rgb(240, 242, 245);
 $color-text: #000;
-$color-primary: #00f;
+$color-primary: #2196F3;
+$color-primary-hover: #4dafff;
 $color-secondary: rgb(104, 245, 104);
 
-$color-button-text: rgb(234, 234, 253);
-$color-button-text-hover: rgb(8, 77, 8);
+$color-panel: rgb(255, 255, 255);
 
-$color-border-separator: #eee;
+$color-button-background: rgb(228, 230, 236);
+$color-button-background-hover: rgb(208, 210, 216);
+
+$color-button-text: rgb(28, 30, 33);
+$color-button-text-hover: rgb(28, 30, 33);
+
+$color-button-add-text: rgb(255,255,255);
+$color-button-add-text-hover: rgb(255,255,255);
+
+$color-switch-background: #ccc;
+$color-switch-active: $color-primary;
+
+$color-border-separator: #ccc;

@@ -7,10 +7,20 @@
 	--color-page-background: #{$color-background};
 	--color-text: #{$color-text};
 	--color-heading: #{$color-primary};
+	--color-panel: #{$color-panel};
 
-	--color-button-background: #{$color-primary};
-	--color-button-background-hover: #{$color-secondary};
+	--color-button-background: #{$color-button-background};
+	--color-button-background-hover: #{$color-button-background-hover};
+	
+	--color-button-add-background: #{$color-primary};
+	--color-button-add-background-hover: #{$color-primary-hover};
+	--color-button-add-text: #{$color-button-add-text};
+	--color-button-add-text-hover: #{$color-button-add-text-hover};
+	
 	--color-button-text: #{$color-button-text};
 	--color-button-text-hover: #{$color-button-text-hover};
 	--color-border-separator: #{$color-border-separator};
+
+	--color-switch-background: #{$color-switch-background};
+	--color-switch-active: #{$color-switch-active};	
 }
