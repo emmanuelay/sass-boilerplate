@@ -43,6 +43,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --color-button-text: #1c1e21;
   --color-button-text-hover: #1c1e21;
   --color-border-separator: #ccc;
+  --color-input-text-background: #e4e6ec;
+  --color-input-text-background-hover: #d0d2d8;
+  --color-input-text-placeholder: #999;
   --color-switch-background: #ccc;
   --color-switch-active: #2196F3;
 }
@@ -63,6 +66,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
   --color-button-text: #e4e6eb;
   --color-button-text-hover: #e4e6eb;
   --color-border-separator: #444;
+  --color-input-text-background: rgba(255, 255, 255, 0.1);
+  --color-input-text-background-hover: rgba(255, 255, 255, 0.25);
+  --color-input-text-placeholder: #999;
   --color-switch-background: #ccc;
   --color-switch-active: #2196F3;
 }
@@ -244,4 +250,28 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+input[type="text"] {
+  border: none;
+  background-color: var(--color-input-text-background);
+  color: var(--color-input-text-color);
+  border-radius: 2rem;
+  padding: 1.3rem 2rem 1.3rem 2rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: var(--color-input-text-background-hover);
+  transition: background-color .5s;
+}
+
+input[type="text"]:focus::placeholder {
+  color: var(--color-input-text-placeholder);
+}
+
+input[type="text"]::placeholder {
+  color: var(--color-input-text-placeholder);
 }

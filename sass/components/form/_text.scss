@@ -1,0 +1,23 @@
+input[type="text"] {
+	border: none;
+	background-color: var(--color-input-text-background);
+	color: var(--color-input-text-color);
+	border-radius: 2rem;
+	padding: 1.3rem 2rem 1.3rem 2rem;
+	font-size: 1.6rem;
+	font-weight: normal;
+
+	&:focus {
+		outline: none;
+		background-color: var(--color-input-text-background-hover);
+		transition: background-color .5s;
+
+		&::placeholder {
+			color: var(--color-input-text-placeholder);
+		}
+	}
+
+	&::placeholder {
+		color: var(--color-input-text-placeholder);
+	}
+}
