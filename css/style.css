@@ -52,6 +52,30 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 /* Generate the dark theme CSS-variables */
 /* Dark theme variables */
+/*
+	Structure
+
+	THEME colors, which are base colors that the theme relies on, should have three variants (regular, light and dark).
+	Black, white or gray colors do not count as theme colors.	
+	ex. 
+	primary - [$color-primary, $color-primary-light, $color-primary-dark]
+	secondary - [$color-secondary, $color-secondary-light, $color-secondary-dark]
+
+	FORM colors, are colors that are used for input elements.
+	They are used for elements such as inputs, buttons, panels and knobs.
+	These should be able to be refined to:
+		border, background, placeholder
+
+	Certain elements should have state variables:
+		valid, invalid, regular, hover, focus, disabled
+
+	LAYOUT colors are colors that are used for sigificant areas of the layout. 
+	ex.
+	header, footer, nav, cards etc
+
+	TODO: Have a look at https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+
+*/
 .dark {
   --color-page-background: #18191a;
   --color-text: #ccc;
