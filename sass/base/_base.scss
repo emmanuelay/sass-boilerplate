@@ -14,15 +14,15 @@ html {
     font-size: 62.5%; 
 
     @include respond(tab-land) {
-        font-size: 56.25%;
+        font-size: 62.5%;
     }
 
     @include respond(tab-port) {
-        font-size: 50%;
+        font-size: 62.5%;
     }
 
     @include respond(phone) {
-        font-size: 30%;
+        font-size: 62.5%;
     }
 
     @include respond(big-desktop) {
