@@ -39,7 +39,7 @@ input:checked + .slider {
 	background-color: var(--color-switch-active);
 
 	&:before {
-		transform: translateX(24px);
+		transform: translateX(25px);
 	}
 }
 
