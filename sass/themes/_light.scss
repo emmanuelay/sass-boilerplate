@@ -17,9 +17,10 @@ $color-button-add-text: rgb(255,255,255);
 $color-button-add-text-hover: rgb(255,255,255);
 
 $color-input-text-background: rgb(228, 230, 236);
-$color-input-text-background-hover: rgb(208, 210, 216);
+$color-input-text-background-hover: rgb(238, 240, 246);
 $color-input-text-color: rgb(28, 30, 33);
 $color-input-text-placeholder: #999;
+$color-input-text-border-focus: $color-primary;
 
 $color-switch-background: #ccc;
 $color-switch-active: $color-primary;

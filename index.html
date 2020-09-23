@@ -5,14 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/style.min.css">
 		<title>SASS Boilerplate</title>
-		<script language="javascript">
-			function toggleTheme() {
-				const bodyElement = document.body;
-				if (!bodyElement || bodyElement === undefined) return;
-				const bodyClasses = bodyElement.classList;
-				bodyClasses.toggle("dark");
-			}
-		</script>
+		<script language="javascript" src="js/globaltabs.js"></script>
+		<script language="javascript" src="js/theme.js"></script>
     </head>
     <body>
 		<div class="panel">
@@ -30,12 +24,32 @@
 			<a href="#" class="button">A button</a>
 			<a href="#" class="button">...</a>
 			<a href="#" class="button">More</a>
-			<a href="#" class="button button-add">Add</a>
+			<a href="#" class="button button-add" onClick="addTab()">Add tab</a>
 		</div>
 		<div class="panel">
 			<input type="text" placeholder="E-mail address" />
 			<input type="text" class="search" placeholder="Search" />
 		</div>
 	
+		<div class="globaltabs" id="globaltabs">
+			<div class="globaltabs__index" id="index">
+				<div class="globaltabs__tab" id="tab1">
+					<a href="#" class="globaltabs__tab-close" onClick="closeTab('tab1')">Close</a>
+					<a href="#" class="globaltabs__tab-toggle" onClick="toggleTab('tab1')">Tab 1</a>
+				</div>
+				<div class="globaltabs__tab" id="tab2">
+					<a href="#" class="globaltabs__tab-close" onClick="closeTab('tab2')">Close</a>
+					<a href="#" class="globaltabs__tab-toggle" onClick="toggleTab('tab2')">Tab 2</a>
+				</div>
+			</div>
+			<div class="globaltabs__container" id="content">
+				<div class="globaltabs__content" id="tab1-content">
+					<h1>Hello, first tab!</h1>
+				</div>
+				<div class="globaltabs__content" id="tab2-content">
+					<h1>Hello, second tab!</h1>
+				</div>
+			</div>
+		</div>
     </body>
 </html>

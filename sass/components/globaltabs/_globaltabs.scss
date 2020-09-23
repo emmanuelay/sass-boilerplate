@@ -1,0 +1,106 @@
+.globaltabs {
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	height: 100%;
+
+	&.active {
+		& .globaltabs__index {
+			right: 30rem;
+		}
+
+		& .globaltabs__container {
+			right: 0rem;
+			width: 30rem;
+			height: 100%;
+			display: block;
+			visibility: visible;
+		}
+	}
+
+	// Index element
+	&__index {
+		display: block;
+		position: absolute;
+		overflow: hidden;
+		overflow-y: auto;
+		top: 0;
+		padding-top: 10px;
+		right: 0;
+		height: 100vh;
+		width: 6rem;
+	}
+	
+	// Tab element inside the index
+	&__tab {
+		background-color: orangered;
+		border-bottom: 1px solid #fff;
+		border-top-left-radius: .8rem;
+		border-bottom-left-radius: .8rem;
+		font-weight: bold;
+		text-align: center;
+
+		&.active {
+			background-color: greenyellow;
+		}
+
+		&:hover {
+			background-color: greenyellow;
+
+			& .globaltabs__tab-close {
+				visibility: visible;
+			}
+		}
+
+
+		// Close button
+		&-close {
+			position: absolute;
+			visibility: hidden;
+			font-size: .5rem;
+			display: block;
+			padding: .5rem;
+			text-decoration: none;
+			color: #777;
+
+			&:hover {
+				color: #000;
+			}
+		}
+
+		// Toggle visibility button
+		&-toggle {
+			font-size: 1.5rem;
+			text-decoration: none;
+			color: #fff;	
+			padding: 1rem 2rem;
+			display: block;
+
+			&:hover {
+				
+				color: #000;
+			}
+		}
+
+	}
+
+	// Container element contains content elements
+	&__container {
+		display: none;
+		visibility: hidden;
+		background-color: greenyellow;
+	}
+
+	// Content element
+	&__content {
+		display: none;
+		visibility: hidden;
+		padding: 2rem;
+
+		&.active {
+			display: block;
+			visibility: visible;
+		}
+	}
+}
