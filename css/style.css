@@ -164,10 +164,13 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
+  font-weight: 200;
+  letter-spacing: -.1rem;
 }
 
 h2 {
@@ -177,6 +180,7 @@ h2 {
 p {
   font-family: inherit;
   font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .mt-1 {
@@ -199,7 +203,7 @@ p {
   padding: 1rem 2rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   border-radius: .5rem;
   text-decoration: none;
 }
@@ -318,19 +322,20 @@ input[type="text"]::placeholder {
 }
 
 .globaltabs.active .globaltabs__index {
-  right: 30rem;
+  right: 80rem;
 }
 
 .globaltabs.active .globaltabs__container {
   right: 0rem;
-  width: 30rem;
+  width: 80rem;
   height: 100%;
   display: block;
   visibility: visible;
 }
 
 .globaltabs__index {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   overflow: hidden;
   overflow-y: auto;
@@ -338,20 +343,16 @@ input[type="text"]::placeholder {
   padding-top: 10px;
   right: 0;
   height: 100vh;
-  width: 6rem;
+  width: 8rem;
 }
 
 .globaltabs__tab {
   background-color: orangered;
-  border-bottom: 1px solid #fff;
-  border-top-left-radius: .8rem;
-  border-bottom-left-radius: .8rem;
-  font-weight: bold;
-  text-align: center;
+  margin-bottom: 2px;
 }
 
 .globaltabs__tab.active {
-  background-color: greenyellow;
+  background-color: #ccc;
 }
 
 .globaltabs__tab:hover {
@@ -391,7 +392,8 @@ input[type="text"]::placeholder {
 .globaltabs__container {
   display: none;
   visibility: hidden;
-  background-color: greenyellow;
+  background-color: #fff;
+  box-shadow: -3px 0px 17px -4px rgba(0, 0, 0, 0.75);
 }
 
 .globaltabs__content {
