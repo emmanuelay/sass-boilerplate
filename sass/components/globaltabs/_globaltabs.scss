@@ -7,12 +7,12 @@
 
 	&.active {
 		& .globaltabs__index {
-			right: 30rem;
+			right: 80rem;
 		}
 
 		& .globaltabs__container {
 			right: 0rem;
-			width: 30rem;
+			width: 80rem;
 			height: 100%;
 			display: block;
 			visibility: visible;
@@ -21,7 +21,8 @@
 
 	// Index element
 	&__index {
-		display: block;
+		display: flex;
+		flex-direction: column;
 		position: absolute;
 		overflow: hidden;
 		overflow-y: auto;
@@ -29,20 +30,16 @@
 		padding-top: 10px;
 		right: 0;
 		height: 100vh;
-		width: 6rem;
+		width: 8rem;
 	}
 	
 	// Tab element inside the index
 	&__tab {
 		background-color: orangered;
-		border-bottom: 1px solid #fff;
-		border-top-left-radius: .8rem;
-		border-bottom-left-radius: .8rem;
-		font-weight: bold;
-		text-align: center;
+		margin-bottom: 2px;
 
 		&.active {
-			background-color: greenyellow;
+			background-color: #ccc;
 		}
 
 		&:hover {
@@ -89,7 +86,8 @@
 	&__container {
 		display: none;
 		visibility: hidden;
-		background-color: greenyellow;
+		background-color: #fff;
+		box-shadow:  -3px 0px 17px -4px rgba(0,0,0,0.75);
 	}
 
 	// Content element
@@ -101,6 +99,7 @@
 		&.active {
 			display: block;
 			visibility: visible;
+
 		}
 	}
 }
