@@ -1,3 +1,6 @@
+var tabIndex = 0;
+var activeTab = nil;
+
 function addTab() {
 	const tabIndexElement = document.getElementById("index");
 	if (!tabIndexElement || tabIndexElement === undefined) return;
@@ -6,41 +9,76 @@ function addTab() {
 	const tabContentElement = containerElement[0];
 	if (!tabContentElement || tabContentElement === undefined) return;
 
-
-	const tabIndex = (tabIndexElement.childElementCount + 1);
+	tabIndex++;
 	const tabId = "tab" + tabIndex;
 	
 	const newTabElement = document.createElement("div");
 	newTabElement.className = "globaltabs__tab";
 	newTabElement.id = tabId;
-	newTabElement.innerHTML = "<a href=\"#\" class=\"globaltabs__tab-close\" onClick=\"closeTab('"+tabId+"')\">Close</a><a href=\"#\" class=\"globaltabs__tab-toggle\" onClick=\"toggleTab('"+tabId+"')\">Tab " + tabIndex + "</a>";
+
+	const linkCloseTab = document.createElement("a");
+	linkCloseTab.className = "globaltabs__tab-close";
+	linkCloseTab.id = tabId + "_close";
+	linkCloseTab.href = "#";
+	linkCloseTab.text = "Close";
+	linkCloseTab.addEventListener("click",(e)=>{
+		e.preventDefault();
+		closeTab(tabId);
+	});
+
+	newTabElement.appendChild(linkCloseTab);
+
+	const linkToggleTab = document.createElement("a");
+	linkToggleTab.className = "globaltabs__tab-toggle";
+	linkToggleTab.id = tabId + "_toggle";
+	linkToggleTab.href = "#";
+	linkToggleTab.text = "Tab " + tabIndex;
+	linkToggleTab.addEventListener("click",(e)=>{
+		e.preventDefault();
+		toggleTab(tabId);
+	});
+	newTabElement.appendChild(linkToggleTab);
+
 	tabIndexElement.appendChild(newTabElement);
 
 	const newContentElement = document.createElement("div");
 	newContentElement.className = "globaltabs__content";
-	newContentElement.id = "tab" + tabIndex + "-content";
+	newContentElement.id = "globaltabs_tab" + tabIndex + "-content";
 	// <div class="globaltabs__content" id="tab1-content">
 	newContentElement.innerHTML = "<h1>Hello, tab number " + tabIndex + "</h1>";
 	tabContentElement.appendChild(newContentElement);
 }
 
 function closeTab(tabId) {
-	const indexElement = document.getElementById("index");
-	const tabCount = indexElement.childElementCount;
-	const containerElement = document.getElementById("content");
-	const contentElement = document.getElementById(tabId + "-content");
-	const tabElement = document.getElementById(tabId);
 
-	if (tabCount == 1) {
-		toggleTab(tabId);					
-	}
+	const tabsElement = document.getElementById("globaltabs");
+	if (!tabsElement || tabsElement === undefined) return;
+	const tabsClasses = tabsElement.classList;
+	const isGlobalActive = tabsClasses.contains("active");
+
+	const indexElement = document.getElementById("index");
+	const isLastTab = indexElement.childElementCount == 1;
+	const containerElement = document.getElementById("content");
+	const contentElement = document.getElementById("globaltabs_" + tabId + "-content");
+	const tabElement = document.getElementById(tabId);
+	const tabSibling = tabElement.previousSibling;
 
 	indexElement.removeChild(tabElement);
 	containerElement.removeChild(contentElement);
 
+	if (isGlobalActive) {
+		if (isLastTab) {
+			tabsClasses.remove("active");
+			return
+		} 
+		
+		if (activeTab == tabId)
+			toggleTab(tabSibling.id);
+	}
 }
 
 function toggleTab(tabId) {
+
 	const classActive = "active";
 
 	// Global element
@@ -62,7 +100,7 @@ function toggleTab(tabId) {
 	const allButSelectedContentElements = Array.from(allTabsContentElements).filter((e)=>e.id !== tabId + "-content");
 
 	// Selected element
-	const tabElementContent = document.getElementById(tabId + "-content");
+	const tabElementContent = document.getElementById("globaltabs_" + tabId + "-content");
 	if (!tabElementContent ||tabElementContent === undefined) return;
 	const contentClasses = tabElementContent.classList;
 
@@ -75,9 +113,11 @@ function toggleTab(tabId) {
 			allButSelectedTabElements.map((e)=>e.classList.remove(classActive));
 			contentClasses.add(classActive);
 			tabClasses.add(classActive);
+			activeTab = tabId;
 		} else {
 			tabsClasses.toggle(classActive);
 			tabClasses.remove(classActive);
+			activeTab = nil;
 		}
 	} else {
 		tabsClasses.toggle(classActive);
@@ -87,8 +127,10 @@ function toggleTab(tabId) {
 			allButSelectedTabElements.map((e)=>e.classList.remove(classActive));
 			contentClasses.add(classActive);
 			tabClasses.add(classActive);
+			activeTab = tabId;
 		} else {
 			tabClasses.toggle(classActive);
+			activeTab = nil;
 		}
 	}
 }
