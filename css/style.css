@@ -100,44 +100,106 @@ ORDER: Base + typography > general layout + grid > page layout > components
 }
 
 /* Base */
-.animation-color {
-  transition: color .3s ease-in-out, background-color .4s ease-in-out;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-*,
-*::after,
-*::before {
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.animation-color {
+  transition: color 0.3s ease-in-out, background-color 0.4s ease-in-out;
 }
 
 html {
   /* This defines what 1 rem is.
-       16 px is the default font size. 
-       1 rem = (R)elative to font-size of the root (E)le(M)ment
-       We want 1 rem = 10 px; Thus, 10px/16px = 62.5% */
+     16 px is the default font size. 
+     1 rem = (R)elative to font-size of the root (E)le(M)ment
+     We want 1 rem = 10 px; Thus, 10px/16px = 62.5% */
   font-size: 62.5%;
 }
-
 @media (max-width: 75em) {
   html {
     font-size: 62.5%;
   }
 }
-
 @media (max-width: 56.25em) {
   html {
     font-size: 62.5%;
   }
 }
-
 @media (max-width: 37.5em) {
   html {
     font-size: 62.5%;
   }
 }
-
 @media (min-width: 112.5em) {
   html {
     font-size: 75%;
@@ -145,8 +207,6 @@ html {
 }
 
 body {
-  box-sizing: border-box;
-  /* Borders and padding are added to the height */
   background-color: var(--color-page-background);
   color: var(--color-text);
   padding: 2rem;
@@ -170,7 +230,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 5rem;
   font-weight: 200;
-  letter-spacing: -.1rem;
+  letter-spacing: -0.1rem;
 }
 
 h2 {
@@ -204,20 +264,17 @@ p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   text-decoration: none;
 }
-
 .button:hover {
   background-color: var(--color-button-background-hover);
   color: var(--color-button-text-hover);
 }
-
 .button-add {
   background-color: var(--color-button-add-background);
   color: var(--color-button-add-text);
 }
-
 .button-add:hover {
   background-color: var(--color-button-add-background-hover);
   color: var(--color-button-add-text-hover);
@@ -229,7 +286,7 @@ p {
   margin-bottom: 2rem;
   background-color: var(--color-panel);
   border: 0;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
 }
 
@@ -239,7 +296,6 @@ p {
   width: 56px;
   height: 30px;
 }
-
 .switch input {
   opacity: 0;
   width: 0;
@@ -254,9 +310,8 @@ p {
   right: 0;
   bottom: 0;
   background-color: var(--color-switch-background);
-  transition: .4s;
+  transition: 0.4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -265,13 +320,12 @@ p {
   left: 3px;
   bottom: 3px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
   background-color: var(--color-switch-active);
 }
-
 input:checked + .slider:before {
   transform: translateX(25px);
 }
@@ -283,33 +337,29 @@ input:focus + .slider {
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
 
-input[type="text"] {
+input[type=text] {
   border: 2px solid transparent;
   background-color: var(--color-input-text-background);
   color: var(--color-input-text-color);
-  border-radius: .8rem;
+  border-radius: 0.8rem;
   padding: 1.5rem 2rem;
   font-size: 1.9rem;
   font-weight: normal;
 }
-
-input[type="text"]:focus {
+input[type=text]:focus {
   outline: none;
   background-color: var(--color-input-text-background-hover);
-  transition: background-color .5s;
+  transition: background-color 0.5s;
   border: 2px solid var(--color-input-text-border-focus);
 }
-
-input[type="text"]:focus::placeholder {
+input[type=text]:focus::placeholder {
   color: var(--color-input-text-placeholder);
 }
-
-input[type="text"]::placeholder {
+input[type=text]::placeholder {
   color: var(--color-input-text-placeholder);
 }
 
@@ -320,11 +370,9 @@ input[type="text"]::placeholder {
   right: 0;
   height: 100%;
 }
-
 .globaltabs.active .globaltabs__index {
   right: 80rem;
 }
-
 .globaltabs.active .globaltabs__container {
   right: 0rem;
   width: 80rem;
@@ -332,7 +380,6 @@ input[type="text"]::placeholder {
   display: block;
   visibility: visible;
 }
-
 .globaltabs__index {
   display: flex;
   flex-direction: column;
@@ -345,38 +392,31 @@ input[type="text"]::placeholder {
   height: 100vh;
   width: 8rem;
 }
-
 .globaltabs__tab {
   background-color: orangered;
   margin-bottom: 2px;
 }
-
 .globaltabs__tab.active {
   background-color: #ccc;
 }
-
 .globaltabs__tab:hover {
   background-color: greenyellow;
 }
-
 .globaltabs__tab:hover .globaltabs__tab-close {
   visibility: visible;
 }
-
 .globaltabs__tab-close {
   position: absolute;
   visibility: hidden;
-  font-size: .5rem;
+  font-size: 0.5rem;
   display: block;
-  padding: .5rem;
+  padding: 0.5rem;
   text-decoration: none;
   color: #777;
 }
-
 .globaltabs__tab-close:hover {
   color: #000;
 }
-
 .globaltabs__tab-toggle {
   font-size: 1.5rem;
   text-decoration: none;
@@ -384,25 +424,23 @@ input[type="text"]::placeholder {
   padding: 1rem 2rem;
   display: block;
 }
-
 .globaltabs__tab-toggle:hover {
   color: #000;
 }
-
 .globaltabs__container {
   display: none;
   visibility: hidden;
   background-color: #fff;
   box-shadow: -3px 0px 17px -4px rgba(0, 0, 0, 0.75);
 }
-
 .globaltabs__content {
   display: none;
   visibility: hidden;
   padding: 2rem;
 }
-
 .globaltabs__content.active {
   display: block;
   visibility: visible;
 }
+
+/*# sourceMappingURL=style.css.map */
