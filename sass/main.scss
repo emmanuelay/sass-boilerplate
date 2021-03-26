@@ -7,7 +7,8 @@
 @import "themes/themes";
 		
 /* Base */
-@import "base/animations",
+@import "base/reset",
+        "base/animations",
         "base/base",
         "base/typography",
         "base/utilities";
