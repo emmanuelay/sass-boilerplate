@@ -1,5 +1,5 @@
 var tabIndex = 0;
-var activeTab = nil;
+var activeTab = null;
 
 function addTab() {
 	const tabIndexElement = document.getElementById("index");
